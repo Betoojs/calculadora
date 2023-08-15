@@ -67,7 +67,8 @@ const inss = 0
 function calcularInss(){
     if(salarioUsuario.value <= 1.320){
         let desconto = salarioUsuario.value * 0.075
-        alert(`seu valor liquido foi ${salarioUsuario.value - desconto}`)
+        let descontado = salarioUsuario.value - desconto
+        alert(`seu valor liquido foi ${descontado.toFixed(3)}`)
     }else if(salarioUsuario.value >= 1.320,1 && salarioUsuario.value <= 2.571,29){
         parseFloat(salarioUsuario.value) * 0.09
        alert(`seu valor liquido foi ${salarioUsuario.value}`)

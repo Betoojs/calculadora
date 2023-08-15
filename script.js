@@ -2,10 +2,11 @@
 const inputPorc = document.getElementById('resultado')
 const finalResult = document.getElementById('resultado')
 const calcular = document.getElementById('btn-calcular')
+const limpar = document.getElementById('btn-limpar')
 
 
-function calculadora(){
-    document.getElementById('calculadora').style.display = "block"; 
+function calculadora() {
+    document.getElementById('calculadora').style.display = "block";
 }
 
 
@@ -35,20 +36,17 @@ function operacao(op) {
             }
         } else if (valorOp === "-") {
             finalResult.value = finalResult.innerHTML = valorN1 - valorN2
-        } else {
+        } else{
             finalResult.value = finalResult.innerHTML = "Digite um valor válido"
         }
+        limpar.addEventListener('click', function clean() {
+            valorN1 = 0
+            valorN2 = 0
+            document.getElementById('resultado').value.innerHTML = resultado.value = ""
+        })
 
     })
-
-
 }
-
-
-
-
-
-
 
 
 function porc() {

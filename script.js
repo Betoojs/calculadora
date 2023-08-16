@@ -62,23 +62,22 @@ function porc() {
 
 const salarioUsuario = document.getElementById('salario')
 const inss = 0
-
+let descontado = 0
 
 function calcularInss(){
     if(salarioUsuario.value <= 1.320){
-        let desconto = salarioUsuario.value * 0.075
-        let descontado = salarioUsuario.value - desconto
+        descontado = salarioUsuario.value - salarioUsuario.value * 0.075
         alert(`seu valor liquido foi ${descontado.toFixed(3)}`)
     }else if(salarioUsuario.value >= 1.320,1 && salarioUsuario.value <= 2.571,29){
-        parseFloat(salarioUsuario.value) * 0.09
-       alert(`seu valor liquido foi ${salarioUsuario.value}`)
+        descontado = salarioUsuario.value - salarioUsuario.value * 0.09
+       alert(`seu valor liquido foi ${descontado.toFixed(3)}`)
     }else if(salarioUsuario.value >= 2.571,30 && salarioUsuario.value <= 3.856,94){
-        parseFloat(salarioUsuario.value) * 0.12
-       alert(`seu valor liquido foi ${salarioUsuario.value}`)
+         descontado = salarioUsuario.value - salarioUsuario.value * 0.12
+       alert(`seu valor liquido foi ${descontado.toFixed(3)}`)
     }else if(salarioUsuario.value >=  3.856,95 && salarioUsuario.value <= 7.507,49){
-        parseFloat(salarioUsuario.value) * 0.14
-       alert(`seu valor liquido foi ${salarioUsuario.value}`)
+        descontado = salarioUsuario - salarioUsuario.value * 0.14
+       alert(`seu valor liquido foi ${descontado.toFixed(3)}`)
     }else{
-        alert(`Não teve alterão, seu valor é ${salarioUsuario.value}`)
+        alert(`Não teve alterão, seu valor é ${descontado.toFixed(3)}`)
     }
 }

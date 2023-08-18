@@ -28,22 +28,26 @@ function operacao(op) {
         let valorN2 = parseFloat(document.getElementById('resultado').value.replace(",", "."))
         if (valorOp === "+") {
             finalResult.value = finalResult.innerHTML = valorN1 + valorN2
+            valorOp = ""
         } else if (valorOp === "*") {
             finalResult.value = finalResult.innerHTML = valorN1 * valorN2
+            valorOp = ""
         } else if (valorOp === "/") {
             if (valorN2 == 0) {
                 finalResult.value = finalResult.innerHTML = "Divisão inválida"
+                valorOp = ""
             } else {
                 finalResult.value = finalResult.innerHTML = valorN1 / valorN2
+                valorOp = ""
             }
         } else if (valorOp === "-") {
             finalResult.value = finalResult.innerHTML = valorN1 - valorN2
-        } else{
-            finalResult.value = finalResult.innerHTML = "Digite um valor válido"
+            valorOp = ""
         }
         limpar.addEventListener('click', function clean() {
-            valorN1 = 0
-            valorN2 = 0
+            valorN1 = ""
+            valorN2 = ""
+            valorOp = ""
             document.getElementById('resultado').value.innerHTML = resultado.value = ""
         })
 
@@ -65,18 +69,18 @@ const inss = 0
 let descontado = 0
 
 function calcularInss(){
-    if(salarioUsuario.value <= 1.320){
+    if(salarioUsuario.value <= 1320){
         descontado = salarioUsuario.value - salarioUsuario.value * 0.075
-        alert(`seu valor liquido foi ${descontado.toFixed(3)}`)
-    }else if(salarioUsuario.value >= 1.320,1 && salarioUsuario.value <= 2.571,29){
+        alert(`seu valor liquido foi ${descontado.toFixed(2)}`)
+    }else if(salarioUsuario.value >= 1320.1 && salarioUsuario.value <= 2571.29){
         descontado = salarioUsuario.value - salarioUsuario.value * 0.09
-       alert(`seu valor liquido foi ${descontado.toFixed(3)}`)
-    }else if(salarioUsuario.value >= 2.571,30 && salarioUsuario.value <= 3.856,94){
+       alert(`seu valor liquido foi ${descontado.toFixed(2)}`)
+    }else if(salarioUsuario.value >= 2571.30 && salarioUsuario.value <= 3856.94){
          descontado = salarioUsuario.value - salarioUsuario.value * 0.12
-       alert(`seu valor liquido foi ${descontado.toFixed(3)}`)
-    }else if(salarioUsuario.value >=  3.856,95 && salarioUsuario.value <= 7.507,49){
-        descontado = salarioUsuario - salarioUsuario.value * 0.14
-       alert(`seu valor liquido foi ${descontado.toFixed(3)}`)
+       alert(`seu valor liquido foi ${descontado.toFixed(2)}`)
+    }else if(salarioUsuario.value >=  3856.95 && salarioUsuario.value <= 7507.49){
+        descontado = salarioUsuario.value - salarioUsuario.value * 0.14
+       alert(`seu valor liquido foi ${descontado.toFixed(2)}`)
     }else{
         alert(`Não teve alterão, seu valor é ${descontado.toFixed(3)}`)
     }

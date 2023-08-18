@@ -13,19 +13,26 @@ function calculadora() {
 
 
 function insert(num) {
-    var numero = document.getElementById('resultado').innerHTML = resultado.value.replace(",", ".")
+    var numero = document.getElementById('resultado').innerHTML = resultado.value
     document.getElementById('resultado').innerHTML = resultado.value = numero + num
+    limpar.addEventListener('click', function clean() {
+        valorN1 = ""
+        valorN2 = ""
+        valorOp = ""
+        document.getElementById('resultado').value.innerHTML = resultado.value = ""
+    })
+    exibirPonto()
 }
 
 function operacao(op) {
-    let valorN1 = parseFloat(document.getElementById('resultado').value.replace(",", "."))
+    let valorN1 = parseFloat(document.getElementById('resultado').value)
     let valorOp = op
     document.getElementById('resultado').value.innerHTML = resultado.value = ""
 
 
 
     calcular.addEventListener('click', function calcular() {
-        let valorN2 = parseFloat(document.getElementById('resultado').value.replace(",", "."))
+        let valorN2 = parseFloat(document.getElementById('resultado').value)
         if (valorOp === "+") {
             finalResult.value = finalResult.innerHTML = valorN1 + valorN2
             valorOp = ""
@@ -44,25 +51,31 @@ function operacao(op) {
             finalResult.value = finalResult.innerHTML = valorN1 - valorN2
             valorOp = ""
         }
-        limpar.addEventListener('click', function clean() {
-            valorN1 = ""
-            valorN2 = ""
-            valorOp = ""
-            document.getElementById('resultado').value.innerHTML = resultado.value = ""
-        })
 
     })
 }
 
 
 function porc() {
-    let inputPorcResult = parseFloat(resultado.value.replace(",", ".")) / 100;
+    let inputPorcResult = parseFloat(resultado.value) / 100;
     finalResult.innerHTML = finalResult.value = inputPorcResult
 }
 
+function back(){
+    let apagarNumero = document.getElementById('resultado')
+    apagarNumero.value = apagarNumero.value.substr(0, apagarNumero.value.length -1);
+}
 
-// calcular salario inss
 
+
+
+
+const exibirPonto = () => {
+    let inputAddPonto = document.getElementById('resultado').value
+    if(inputAddPonto.length  === 4 ){
+        inputAddPonto.innerHTML = "."[1]
+    }   // calcular salario inss
+}
 
 const salarioUsuario = document.getElementById('salario')
 const inss = 0
@@ -82,6 +95,6 @@ function calcularInss(){
         descontado = salarioUsuario.value - salarioUsuario.value * 0.14
        alert(`seu valor liquido foi ${descontado.toFixed(2)}`)
     }else{
-        alert(`Não teve alterão, seu valor é ${descontado.toFixed(3)}`)
+        alert(`Não teve alterão, seu valor é ${descontado.toFixed(2)}`)
     }
 }

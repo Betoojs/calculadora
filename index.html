@@ -10,11 +10,13 @@
 
 <body>
     <div class="fundo">
-        <div class="calculadora">
-            <input id="resultado"></input>
-            <table>
+        <div class="conteudo">
+            <div class="calcualdora"></div>
+            <input type="text" id="resultado" disabled=""></input>
+            <table class="tabela-calculadora">
                 <tr>
                     <td><button class="botao" id="btn-limpar">C</button></td>
+                    <td><button class="botao" onclick="back()"><</button></td>
                     <td><button class="botao" onclick="operacao('/')">÷</button></td>
                     <td><button class="botao" onclick="operacao('*')">X</button></td>
                 </tr>
@@ -39,23 +41,24 @@
                 </tr>
                 <tr>
                     <td> <button class="botao" onclick="insert('0')">0</button></td>
-                    <td> <button class="botao" onclick="insert(',')">,</button></td>
+                    <td> <button class="botao" onclick="insert(',')">.</button></td>
                     <td> <button class="botao" onclick="porc()">%</button></td>
                 </tr>
             </table>
 
 
-            <div>
-                <input type="text" placeholder="Sálario bruto" id="salario">
-                <div>
-                    Seu sálario liquido 
-                    <span id="resultadoInss"></span>
-                </div>
-                <button onclick="calcularInss()"></button>
-            </div>
-
-            
         </div>
+
+
+        <div class="inss">
+            <input type="text" placeholder="Sálario bruto" id="salario">
+            <div>
+                Seu sálario liquido
+                <span id="resultadoInss"></span>
+            </div>
+            <button onclick="calcularInss()"></button>
+        </div>
+
     </div>
 
 
